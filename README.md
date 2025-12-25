@@ -225,7 +225,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+- GitHub: [@Ziad_Mohamed](https://github.com/pigpis-Curwud-0wikty)
 
 ## 🙏 Acknowledgments
 
