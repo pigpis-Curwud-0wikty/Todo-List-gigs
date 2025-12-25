@@ -1,0 +1,20 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1 class="app-title">✨ Todo Manager</h1>
+    <p class="app-subtitle">Organize your tasks beautifully</p>
+  </header>
+
+  <main class="app-main">
+    <div class="content-wrapper">
+      <section class="form-section">
+        <app-todo-form [editingTodo]="editingTodo" (submitTodo)="onSubmitTodo($event)"
+          (cancelEdit)="onCancelEdit()"></app-todo-form>
+      </section>
+
+      <section class="list-section">
+        <app-todo-list [todos]="todos" (editTodo)="onEditTodo($event)"
+          (deleteTodo)="onDeleteTodo($event)"></app-todo-list>
+      </section>
+    </div>
+  </main>
+</div>

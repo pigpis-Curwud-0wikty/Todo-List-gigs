@@ -1,0 +1,48 @@
+<div class="todo-form-container">
+    <h2 class="form-title">{{ isEditing() ? 'Update Todo' : 'Create New Todo' }}</h2>
+
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()" class="todo-form">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" formControlName="title" placeholder="Enter todo title..."
+                [class.error]="title?.invalid && title?.touched" />
+            @if (title?.invalid && title?.touched) {
+            <span class="error-message">
+                @if (title?.errors?.['required']) {
+                Title is required
+                }
+                @if (title?.errors?.['minlength']) {
+                Title must be at least 3 characters
+                }
+            </span>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" formControlName="description" placeholder="Enter todo description..." rows="4"
+                [class.error]="description?.invalid && description?.touched"></textarea>
+            @if (description?.invalid && description?.touched) {
+            <span class="error-message">
+                @if (description?.errors?.['required']) {
+                Description is required
+                }
+                @if (description?.errors?.['minlength']) {
+                Description must be at least 5 characters
+                }
+            </span>
+            }
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" [disabled]="todoForm.invalid">
+                {{ isEditing() ? 'Update Todo' : 'Add Todo' }}
+            </button>
+            @if (isEditing()) {
+            <button type="button" class="btn btn-secondary" (click)="onCancel()">
+                Cancel
+            </button>
+            }
+        </div>
+    </form>
+</div>

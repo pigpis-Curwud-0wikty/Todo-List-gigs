@@ -1,0 +1,31 @@
+<div class="todo-list-container">
+    <h2 class="list-title">Your Todos</h2>
+
+    @if (todos.length === 0) {
+    <div class="empty-state">
+        <div class="empty-icon">📝</div>
+        <h3>No todos yet</h3>
+        <p>Create your first todo to get started!</p>
+    </div>
+    } @else {
+    <div class="todo-grid">
+        @for (todo of todos; track todo._id) {
+        <div class="todo-card">
+            <div class="todo-header">
+                <h3 class="todo-title">{{ todo.title }}</h3>
+                <span class="todo-date">{{ formatDate(todo.createdAt) }}</span>
+            </div>
+            <p class="todo-description">{{ todo.description }}</p>
+            <div class="todo-actions">
+                <button class="btn-edit" (click)="onEdit(todo)">
+                    <span>✏️</span> Edit
+                </button>
+                <button class="btn-delete" (click)="onDelete(todo._id)">
+                    <span>🗑️</span> Delete
+                </button>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>
